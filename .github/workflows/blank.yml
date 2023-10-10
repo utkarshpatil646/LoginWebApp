@@ -6,4 +6,4 @@ jobs:
 
     steps:
       - name: Collectine metadata about the workflow
-        run: echo "${{toJSON (github)}}"
+        run: echo "${{ toJSON (github) }}"
