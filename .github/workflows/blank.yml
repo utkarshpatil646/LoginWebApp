@@ -1,0 +1,9 @@
+on: workflow_dispatch
+
+jobs:
+  :Testing
+    runs-on: test-runner
+
+    steps:
+      - name: Collectine metadata about the workflow
+        run: echo "${{toJSON (github)}}"
