@@ -2,7 +2,7 @@ on: workflow_dispatch
 
 jobs:
   Testing:
-    runs-on: dev-runner
+    runs-on: self-hosted
 
     steps:
       - name: Collectine metadata about the workflow
