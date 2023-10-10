@@ -1,7 +1,7 @@
 on: workflow_dispatch
 jobs:
   testing:
-    runs-on: self-hosted
+    runs-on: rohan
 
     steps:
       - name: Collectine metadata about the workflow
