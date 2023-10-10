@@ -1,7 +1,7 @@
 on: workflow_dispatch
 
 jobs:
-  :Testing
+  Testing:
     runs-on: test-runner
 
     steps:
