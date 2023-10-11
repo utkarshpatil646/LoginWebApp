@@ -1,0 +1,39 @@
+name: Job_1
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on:
+      - ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.1.0
+    - name: run command
+      shell: bash
+      run: |-
+        #! /bin/bash
+        # Script to clean up the MRO queues
+        # Author - Rajasekar Selvam
+        # Date - 23-Aug-22
+        USER=$1
+        echo "AMC server"
+        echo " Checking the MRO queues status"
+        sleep 10;
+        count=$(ipcs -q |grep $USER|tr -s ' '|cut -d ' ' -f 2 | wc -l)
+        if [ $count == 0 ]; then
+          echo "MRO queues are already empty in the AMC server"
+        else
+          echo "Cleaning up MRO queues"
+          for q in $(ipcs -q |grep $USER|tr -s ' '|cut -d ' ' -f 2 )
+          do
+              /usr/bin/ipcrm -q $q
+              echo "Queue id - $q is cleaned up"
+          done
+          count1=$(ipcs -q |grep $USER|tr -s ' '|cut -d ' ' -f 2 | wc -l)
+          if [ $count1 == 0 ]; then
+            echo "MRO cleanup is done successfully !!"
+          else
+            echo "Cleanup of MRO queues on AMC server is not done properly !! Also jobs started by MRO are still running. Please check the server !!"
+          fi
+         fi
+        exit;
