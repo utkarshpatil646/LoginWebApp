@@ -1,6 +1,6 @@
 name: Job_1
 on:
-  workflow_dispatch:
+  workflow_dispatch
 env:
   name: utkarsh
   surname: patil
