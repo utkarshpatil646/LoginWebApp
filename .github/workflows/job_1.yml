@@ -7,6 +7,5 @@ jobs:
   build:
     runs-on: utkarsh
     steps:
-    - name: printing names
     - run: echo 'My name is ${{ env.name }}'
     - run: echo 'My surname is ${{ env.surname }}'
