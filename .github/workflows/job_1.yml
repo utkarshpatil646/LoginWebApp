@@ -1,11 +1,24 @@
-name: Job_1
-on: push
-env:
+name: using multiple env variables
+on: [push, workflow_dispatch]
+env:                          #--------------- We can say these are the global variables which can be used at any stage, job in the workflow ----#
   name: utkarsh
   surname: patil
 jobs:
-  build:
+  printing names using:
     runs-on: utkarsh
-    steps:
-    - run: echo 'My name is ${{ env.name }}'
-    - run: echo 'My surname is ${{ env.surname }}'
+      steps:
+        - run: ehco 'hello my name is ${{ name }}'
+        - run: echo 'my surname is ${{$surname}}'
+        - run: echo 'today is ${{ date }}'
+          env:              #------- Here we are describing a new variable with date in the first job steps -----#
+            date: 13-Octomber
+  printing name and date for tomorrow:
+    runs-on: utkarsh
+      steps:
+      env:         #-------Here we are describing new variables for stage 2 i.e. printing name and tomorrow's date -------#
+        friend_name: rohan
+        friend_surname: patkar
+        tomorrow's_date: 14-Octomber
+          - run: echo 'my friend's name is ${{ friend_name }}'
+          - run: echo 'my friend's surname is ${{ friend_surname}}'
+          - run: echo 'tomorrow's_date will be ${{ tomorrow's_date }}'
