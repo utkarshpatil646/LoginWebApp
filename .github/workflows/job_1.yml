@@ -7,7 +7,7 @@ jobs:
   printingnames:
     runs-on: utkarsh
     steps:
-      - run: ehco 'hello my name is ${{ env.name }}'
+      - run: echo 'hello my name is ${{ env.name }}'
       - run: echo 'my surname is ${{ env.surname }}'
       - run: echo 'today is ${{ env.date }}'
         env:              #------- Here we are describing a new variable with date in the first job steps -----#
