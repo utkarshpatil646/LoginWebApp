@@ -4,7 +4,7 @@ env:                          #--------------- We can say these are the global v
   name: utkarsh
   surname: patil
 jobs:
-    printing names using:
+  printingnames:
     runs-on: utkarsh
     steps:
       - run: ehco 'hello my name is ${{ name }}'
@@ -12,13 +12,13 @@ jobs:
       - run: echo 'today is ${{ date }}'
         env:              #------- Here we are describing a new variable with date in the first job steps -----#
           date: 13-Octomber
-    printing name and date for tomorrow:
+  tomorrowdateandfriendname:
       runs-on: utkarsh
-        steps:
-          - run: echo 'my friend name is ${{ friend_name }}'
-          - run: echo 'my friend surname is ${{ friend_surname }}'
-          - run: echo 'tomorrows_date will be ${{ tomorrow_date }}'
       env:         #-------Here we are describing new variables for stage 2 i.e. printing name and tomorrow's date -------#
-        friend_name: rohan
-        friend_surname: patkar
-        tomorrow_date: 14-Octomber
+            friend_name: rohan
+            friend_surname: patkar
+            tomorrow_date: 14-Octomber
+      steps:
+        - run: echo 'my friend name is ${{ friend_name }}'
+        - run: echo 'my friend surname is ${{ friend_surname }}'
+        - run: echo 'tomorrows_date will be ${{ tomorrow_date }}'
