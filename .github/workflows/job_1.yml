@@ -6,7 +6,7 @@ env:
 jobs:
   build:
     runs-on:
-      - self-hosted
+      - utkarsh
     steps:
     - name: printing names
     - run: echo 'My name is ${{ env.name }}'
