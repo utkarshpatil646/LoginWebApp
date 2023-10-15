@@ -5,7 +5,7 @@ env:                          #--------------- We can say these are the global v
   surname: patil
 jobs:
   printingnames:
-    runs-on: utkarsh
+    runs-on: test-runner
     steps:
       - run: echo 'hello my name is ${{ env.name }}'
       - run: echo 'my surname is ${{ env.surname }}'
@@ -13,7 +13,7 @@ jobs:
         env:              #------- Here we are describing a new variable with date in the first job steps -----#
           date: 13-Octomber
   tomorrowdateandfriendname:
-      runs-on: utkarsh
+      runs-on: test-runner
       env:         #-------Here we are describing new variables for stage 2 i.e. printing name and tomorrow's date -------#
             friend_name: rohan
             friend_surname: patkar
