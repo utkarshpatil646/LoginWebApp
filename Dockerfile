@@ -1,3 +1,3 @@
-FROM utkarsh646/loginwebapp
+FROM tomcat
 copy ././. /usr/local/tomcat/webapps/
 
